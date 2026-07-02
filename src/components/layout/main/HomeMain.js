@@ -4,6 +4,7 @@ import Blogs2 from "@/components/sections/blogs/Blogs2";
 import Contact1 from "@/components/sections/contacts/Contact1";
 import CounterUp from "@/components/sections/counter-up/CounterUp";
 import Hero2 from "@/components/sections/hero-banners/Hero2";
+import HeroNew from "@/components/sections/new/HeroNew";
 import Projects2 from "@/components/sections/projects/Projects2";
 import Services2 from "@/components/sections/services/Services2";
 import Testimonials2 from "@/components/sections/testimonials/Testimonials2";
@@ -17,14 +18,7 @@ const HomeMain = () => {
   const { isOnepage } = useHeaderContex();
   return (
     <main>
-      <Hero2
-        title={
-          <>
-            BEST WEB <span className="text__gradient">AGENCY.</span>
-          </>
-        }
-        img={heroWebAgencyImage5}
-      />
+      <HeroNew />
 
       <About2 />
       <Services2 service={2} isBg={true} />

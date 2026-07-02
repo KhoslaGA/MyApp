@@ -1,0 +1,128 @@
+.hero {
+  position: relative;
+  background: var(--wh-bg-dark);
+  color: var(--wh-text-inv);
+  overflow: hidden;
+  padding: clamp(120px, 16vh, 190px) 0 clamp(80px, 10vh, 130px);
+}
+
+.glow {
+  position: absolute;
+  top: -30%;
+  right: -12%;
+  width: 60vw;
+  height: 60vw;
+  max-width: 900px;
+  max-height: 900px;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 77, 28, 0.22) 0%,
+    rgba(255, 77, 28, 0.06) 40%,
+    transparent 70%
+  );
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse at 30% 20%, black 30%, transparent 75%);
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  color: var(--wh-text-inv-muted);
+}
+
+.title {
+  font-size: clamp(2.8rem, 6.4vw, 5.4rem);
+  margin: 26px 0 18px;
+  max-width: 16ch;
+  color: var(--wh-text-inv);
+}
+
+.rotatorLine {
+  min-height: 2.2em;
+  font-family: var(--wh-font-display);
+  font-style: italic;
+  font-size: clamp(1.25rem, 2.4vw, 1.8rem);
+  color: var(--wh-text-inv-muted);
+  margin: 0 0 22px;
+}
+
+.rotator {
+  display: inline-block;
+  transition: opacity 350ms var(--wh-ease), transform 350ms var(--wh-ease);
+}
+
+.rotatorIn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.rotatorOut {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.sub {
+  max-width: 56ch;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--wh-text-inv-muted);
+  margin: 0 0 34px;
+}
+
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 56px;
+}
+
+.pillars {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 26px;
+  list-style: none;
+  padding: 26px 0 0;
+  margin: 0;
+  border-top: 1px solid var(--wh-border-dark);
+}
+
+.pillars li {
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--wh-text-inv-muted);
+}
+
+.pillars li::before {
+  content: "●";
+  color: var(--wh-accent);
+  font-size: 0.5rem;
+  vertical-align: 2px;
+  margin-right: 8px;
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding-top: 110px;
+  }
+  .ctas {
+    margin-bottom: 40px;
+  }
+}
