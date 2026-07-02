@@ -1,4 +1,8 @@
+"use client";
+import { useRef } from "react";
 import Link from "next/link";
+import useTilt from "./useTilt";
+import Reveal from "./Reveal";
 import styles from "./PricingNew.module.css";
 
 const TIERS = [
@@ -53,17 +57,21 @@ const ADDONS = [
   { name: "Local SEO retainer", price: "from $299/mo" },
 ];
 
-const PricingNew = () => (
+const PricingNew = () => {
+  const tiersRef = useRef(null);
+  useTilt(tiersRef, `.${styles.tier}`);
+  return (
   <section className={`wh ${styles.wrap}`} id="pricing">
     <div className="wh-inner">
       <p className="wh-eyebrow">Transparent pricing</p>
       <h2 className={`wh-display ${styles.heading}`}>
         Clear packages. <span className="wh-em">No mystery quotes.</span>
       </h2>
-      <div className={styles.tiers}>
-        {TIERS.map((t) => (
-          <div
+      <div className={styles.tiers} ref={tiersRef}>
+        {TIERS.map((t, ti) => (
+          <Reveal
             key={t.name}
+            delay={ti * 90}
             className={`${styles.tier} ${t.featured ? styles.featured : ""}`}
           >
             {t.featured && <span className={styles.badge}>Most popular</span>}
@@ -85,7 +93,7 @@ const PricingNew = () => (
             >
               Start with {t.name}
             </Link>
-          </div>
+          </Reveal>
         ))}
       </div>
       <div className={styles.addons}>
@@ -102,5 +110,6 @@ const PricingNew = () => (
     </div>
   </section>
 );
+};
 
 export default PricingNew;

@@ -1,3 +1,5 @@
+"use client";
+import Reveal from "./Reveal";
 import styles from "./ProcessNew.module.css";
 
 const STEPS = [
@@ -31,12 +33,12 @@ const ProcessNew = () => (
         From first call to <span className="wh-em">first customer.</span>
       </h2>
       <div className={styles.steps}>
-        {STEPS.map((s) => (
-          <div key={s.n} className={styles.step}>
+        {STEPS.map((s, i) => (
+          <Reveal key={s.n} delay={i * 80} className={styles.step}>
             <span className={styles.num}>{s.n}</span>
             <h3>{s.title}</h3>
             <p>{s.desc}</p>
-          </div>
+          </Reveal>
         ))}
       </div>
     </div>

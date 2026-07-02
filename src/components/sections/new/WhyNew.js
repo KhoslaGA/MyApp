@@ -1,3 +1,5 @@
+"use client";
+import Reveal from "./Reveal";
 import styles from "./WhyNew.module.css";
 
 const POINTS = [
@@ -36,11 +38,11 @@ const WhyNew = () => (
           </p>
         </div>
         <div className={styles.points}>
-          {POINTS.map((p) => (
-            <div key={p.title} className={styles.point}>
+          {POINTS.map((p, i) => (
+            <Reveal key={p.title} delay={i * 70} className={styles.point}>
               <h3>{p.title}</h3>
               <p>{p.desc}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

@@ -1,0 +1,98 @@
+.wrap {
+  width: 100%;
+  border-radius: 18px;
+  background: linear-gradient(160deg, rgba(28,34,50,0.9), rgba(16,20,31,0.94));
+  border: 1px solid rgba(255,255,255,0.09);
+  box-shadow: 0 40px 90px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.06);
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  position: relative;
+}
+.wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120% 80% at 100% 0%, rgba(255,77,28,0.14), transparent 55%);
+  pointer-events: none;
+}
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  position: relative;
+}
+.dot { width: 11px; height: 11px; border-radius: 50%; background: #3a4152; }
+.dot:nth-child(1) { background: #ff5f57; }
+.dot:nth-child(2) { background: #febc2e; }
+.dot:nth-child(3) { background: #28c840; }
+.barLabel {
+  margin-left: 10px;
+  font-size: 0.76rem;
+  letter-spacing: 0.06em;
+  color: var(--wh-text-inv-muted);
+  font-weight: 500;
+}
+.status {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  color: #28c840;
+  font-weight: 600;
+}
+.pulse {
+  width: 7px; height: 7px; border-radius: 50%; background: #28c840;
+  box-shadow: 0 0 0 0 rgba(40,200,64,0.7);
+  animation: whpulse 1.8s infinite;
+}
+@keyframes whpulse {
+  0% { box-shadow: 0 0 0 0 rgba(40,200,64,0.6); }
+  70% { box-shadow: 0 0 0 7px rgba(40,200,64,0); }
+  100% { box-shadow: 0 0 0 0 rgba(40,200,64,0); }
+}
+.screen {
+  padding: 22px 20px;
+  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: flex-end;
+  font-size: 0.94rem;
+  line-height: 1.5;
+}
+.msg {
+  max-width: 82%;
+  padding: 12px 15px;
+  border-radius: 15px;
+  animation: whrise 360ms cubic-bezier(0.22,1,0.36,1);
+}
+@keyframes whrise {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.caller {
+  align-self: flex-end;
+  background: rgba(255,255,255,0.08);
+  color: #e8ebf0;
+  border-bottom-right-radius: 5px;
+}
+.ai {
+  align-self: flex-start;
+  background: linear-gradient(135deg, var(--wh-accent), #ff6a3d);
+  color: #fff;
+  border-bottom-left-radius: 5px;
+  box-shadow: 0 8px 24px rgba(255,77,28,0.28);
+}
+.caret {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: currentColor;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: whblink 1s steps(2) infinite;
+}
+@keyframes whblink { 50% { opacity: 0; } }
