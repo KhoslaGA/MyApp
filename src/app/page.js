@@ -1,15 +1,35 @@
-import HomeMain from "@/components/layout/main/HomeMain";
-import ThemeController from "@/components/shared/others/ThemeController";
-import PageWrapper from "@/components/shared/wrappers/PageWrapper";
+import NavNew from "@/components/sections/new/NavNew";
+import HeroNew from "@/components/sections/new/HeroNew";
+import ServicesNew from "@/components/sections/new/ServicesNew";
+import AIShowcaseNew from "@/components/sections/new/AIShowcaseNew";
+import ProcessNew from "@/components/sections/new/ProcessNew";
+import PricingNew from "@/components/sections/new/PricingNew";
+import WhyNew from "@/components/sections/new/WhyNew";
+import FAQNew from "@/components/sections/new/FAQNew";
+import CtaNew from "@/components/sections/new/CtaNew";
+import FooterNew from "@/components/sections/new/FooterNew";
+
 export const metadata = {
-  title: "Webhub4u - Take your business to the next level",
-  description: "Webhub4u - Technology of tommorow, today",
+  title: "Webhub4U — Web Design & AI Solutions Agency in the GTA",
+  description:
+    "High-performance websites, local SEO, and AI-powered tools — chatbots, AI receptionists, and automation — for businesses across Brampton, Mississauga, Toronto, and the GTA. Transparent packages from $997.",
 };
+
 export default function Home() {
   return (
-    <PageWrapper headerStyle={3} footerStyle={2}>
-      <ThemeController />
-      <HomeMain />
-    </PageWrapper>
+    <>
+      <NavNew />
+      <main>
+        <HeroNew />
+        <ServicesNew />
+        <AIShowcaseNew />
+        <ProcessNew />
+        <PricingNew />
+        <WhyNew />
+        <FAQNew />
+        <CtaNew />
+      </main>
+      <FooterNew />
+    </>
   );
 }

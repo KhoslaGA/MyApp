@@ -1,0 +1,138 @@
+.wrap {
+  background: var(--wh-bg-soft);
+  padding: clamp(80px, 11vh, 140px) 0;
+}
+.heading {
+  font-size: clamp(2rem, 4.4vw, 3.4rem);
+  margin: 22px 0 54px;
+}
+.tiers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+.tier {
+  position: relative;
+  background: var(--wh-bg);
+  border: 1px solid var(--wh-border);
+  border-radius: var(--wh-radius-lg);
+  padding: 34px 28px;
+  display: flex;
+  flex-direction: column;
+}
+.featured {
+  border-color: var(--wh-accent);
+  box-shadow: 0 24px 60px rgba(255, 77, 28, 0.12);
+}
+.badge {
+  position: absolute;
+  top: -13px;
+  left: 28px;
+  background: var(--wh-accent);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+.tier h3 {
+  font-family: var(--wh-font-display);
+  font-size: 1.5rem;
+  margin: 0 0 6px;
+  color: var(--wh-text);
+}
+.price {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--wh-text);
+  margin: 0 0 8px;
+}
+.price span {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--wh-text-muted);
+}
+.blurb {
+  font-size: 0.92rem;
+  color: var(--wh-text-muted);
+  margin: 0 0 22px;
+  min-height: 2.8em;
+}
+.tier ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px;
+  flex: 1;
+}
+.tier li {
+  font-size: 0.9rem;
+  color: var(--wh-text);
+  padding: 8px 0 8px 26px;
+  position: relative;
+  border-bottom: 1px dashed var(--wh-border);
+}
+.tier li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--wh-accent);
+  font-weight: 700;
+}
+.tierBtn {
+  border: 1px solid var(--wh-border);
+  color: var(--wh-text);
+  justify-content: center;
+}
+.tierBtn:hover {
+  border-color: var(--wh-accent);
+  color: var(--wh-accent);
+}
+.addons {
+  margin-top: 42px;
+  background: var(--wh-bg);
+  border: 1px solid var(--wh-border);
+  border-radius: var(--wh-radius-lg);
+  padding: 26px 28px;
+}
+.addonsTitle {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--wh-text-muted);
+  margin: 0 0 14px;
+}
+.addons ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 40px;
+}
+.addons li {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 0.92rem;
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--wh-border);
+}
+.addonPrice {
+  color: var(--wh-accent);
+  font-weight: 600;
+  white-space: nowrap;
+}
+@media (max-width: 980px) {
+  .tiers {
+    grid-template-columns: 1fr;
+    max-width: 460px;
+    margin: 0 auto;
+  }
+  .addons ul {
+    grid-template-columns: 1fr;
+  }
+}
