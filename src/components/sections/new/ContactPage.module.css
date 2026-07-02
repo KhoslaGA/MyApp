@@ -1,0 +1,21 @@
+.wrap { background: var(--wh-bg); padding: clamp(60px,8vh,100px) 0 clamp(80px,11vh,140px); }
+.grid { display: grid; grid-template-columns: 1.4fr 0.8fr; gap: clamp(30px,5vw,70px); align-items: start; }
+.formCol {
+  background: var(--wh-bg);
+  border: 1px solid var(--wh-border);
+  border-radius: var(--wh-radius-lg);
+  padding: clamp(24px,4vw,40px);
+  margin-top: -80px;
+  box-shadow: 0 30px 70px rgba(14,17,23,0.08);
+}
+.info { display: grid; gap: 26px; padding-top: 20px; }
+.infoBlock a, .infoBlock p { color: var(--wh-text); text-decoration: none; margin: 0; line-height: 1.6; }
+.infoBlock a:hover { color: var(--wh-accent); }
+.infoLabel {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--wh-text-muted) !important; margin: 0 0 6px !important;
+}
+@media (max-width: 860px) {
+  .grid { grid-template-columns: 1fr; }
+  .formCol { margin-top: -60px; }
+}

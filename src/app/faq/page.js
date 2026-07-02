@@ -1,20 +1,24 @@
-import FaqMain from "@/components/layout/main/FaqMain";
-import ThemeController from "@/components/shared/others/ThemeController";
-import PageWrapper from "@/components/shared/wrappers/PageWrapper";
+import PageShell from "@/components/sections/new/PageShell";
+import PageHero from "@/components/sections/new/PageHero";
+import FAQNew from "@/components/sections/new/FAQNew";
+import CtaNew from "@/components/sections/new/CtaNew";
+
 export const metadata = {
-  title: "FAQ | Bastun- Business Consulting Next Js Template",
-  description: "Faq | Bastun- Business Consulting Next Js Template",
+  title: "FAQ | Webhub4U — Web Design & AI Questions Answered",
+  description:
+    "Common questions about our websites, AI receptionists, chatbots, pricing, timelines, and ownership.",
 };
-export default function Faq() {
+
+export default function FAQ() {
   return (
-    <PageWrapper
-      headerStyle={3}
-      footerStyle={3}
-      headerBg={"black"}
-      footerBg={"black"}
-    >
-      <ThemeController />
-      <FaqMain />
-    </PageWrapper>
+    <PageShell>
+      <PageHero
+        eyebrow="FAQ"
+        title={<>Good questions, <span className="wh-em">straight answers.</span></>}
+        sub="Everything people ask before working with us. Don't see yours? Just reach out — we answer honestly."
+      />
+      <FAQNew />
+      <CtaNew />
+    </PageShell>
   );
 }

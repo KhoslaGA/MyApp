@@ -1,0 +1,11 @@
+.story { background: var(--wh-bg); padding: clamp(70px,10vh,130px) 0; }
+.storyGrid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(30px,6vw,80px); align-items: start; }
+.h2 { font-size: clamp(1.9rem,4vw,3rem); margin: 20px 0 0; }
+.storyText p { color: var(--wh-text-muted); line-height: 1.8; margin: 0 0 20px; font-size: 1.05rem; }
+.storyText p:last-child { margin-bottom: 0; }
+.values { background: var(--wh-bg-soft); padding: clamp(70px,10vh,130px) 0; }
+.valuesGrid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; margin-top: 44px; }
+.value { background: var(--wh-bg); border: 1px solid var(--wh-border); border-radius: var(--wh-radius-lg); padding: 30px 28px; }
+.value h3 { font-size: 1.15rem; font-weight: 650; margin: 0 0 10px; color: var(--wh-text); }
+.value p { color: var(--wh-text-muted); line-height: 1.65; margin: 0; }
+@media (max-width: 860px) { .storyGrid, .valuesGrid { grid-template-columns: 1fr; } }

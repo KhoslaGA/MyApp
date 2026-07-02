@@ -1,0 +1,6 @@
+.wrap { background: var(--wh-bg); padding: clamp(60px,8vh,100px) 0 clamp(80px,11vh,140px); }
+.body { max-width: 760px; }
+.updated { color: var(--wh-text-muted); font-size: 0.9rem; margin: 0 0 30px; }
+.body h2 { font-family: var(--wh-font-display); font-size: 1.5rem; margin: 34px 0 12px; color: var(--wh-text); }
+.body p { color: var(--wh-text-muted); line-height: 1.8; margin: 0 0 16px; }
+.body a { color: var(--wh-accent); }

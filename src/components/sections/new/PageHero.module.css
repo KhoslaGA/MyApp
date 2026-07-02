@@ -1,0 +1,33 @@
+.hero {
+  background: var(--wh-bg-dark);
+  color: var(--wh-text-inv);
+  padding: clamp(140px, 20vh, 220px) 0 clamp(60px, 9vh, 100px);
+  position: relative;
+  overflow: hidden;
+}
+.glow {
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 50vw;
+  height: 50vw;
+  max-width: 720px;
+  max-height: 720px;
+  background: radial-gradient(circle, rgba(255,77,28,0.18) 0%, transparent 65%);
+  pointer-events: none;
+}
+.inner { position: relative; z-index: 1; }
+.eyebrow { color: var(--wh-text-inv-muted); }
+.title {
+  font-size: clamp(2.4rem, 5.6vw, 4.6rem);
+  color: var(--wh-text-inv);
+  max-width: 20ch;
+  margin: 22px 0 18px;
+}
+.sub {
+  max-width: 58ch;
+  color: var(--wh-text-inv-muted);
+  line-height: 1.7;
+  font-size: 1.05rem;
+  margin: 0;
+}
