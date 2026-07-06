@@ -17,13 +17,33 @@
   --wh-text-inv: #ffffff;
   --wh-text-inv-muted: #9aa2b1;
 
-  /* ---- Color: accent ---- */
-  --wh-accent: #ff4d1c;
-  --wh-accent-soft: #ffe4d9;
+  /* ---- Color: accent (primary — brand azure, matched to the logo) ----
+     One-color brand: azure leads CTAs, emphasis, links. Chosen deep enough
+     that WHITE text on it passes AA (4.6) and it also passes as TEXT on light
+     (4.6 white / 4.2 soft). Orange survives only as the LogoGlobe comet spark. */
+  --wh-accent: #0e7ea8; /* logo azure — CTA fills + emphasis (AA both ways) */
+  --wh-accent-hover: #0a5f80; /* darker azure — button hover */
+  --wh-accent-soft: #d6eef8; /* light azure tint — chips/pills on light */
+  --wh-accent-ink: #0e7ea8; /* azure as TEXT — AA on light + dark */
+
+  /* ---- Color: secondary accent (brand azure, sampled from the logo) ----
+     Two-color system: azure = brand / structure / depth, orange = action.
+     Usage rule (WCAG): bright azures are for DARK bgs + decoration only;
+     use --wh-accent-2-ink for any azure TEXT/hover on LIGHT bgs. */
+  --wh-accent-2: #15a9dd; /* brand azure — on-dark accents, 3D, ticks */
+  --wh-accent-2-bright: #3cc3f0; /* azure glint / highlight / hover on dark */
+  --wh-accent-2-ink: #0b6e93; /* deep azure — TEXT/hover on light (AA) */
+  --wh-accent-2-soft: #dcf2fb; /* light azure tint — fills/chips on light */
+  --wh-accent-2-deep: #0f375b; /* logo shadow navy — azure borders on dark */
+
+  /* dark-section glow — single-hue azure (two stops for depth) */
+  --wh-glow-azure: rgba(21, 169, 221, 0.22);
+  --wh-glow-orange: rgba(60, 195, 240, 0.12); /* now azure too (kept name for reuse) */
 
   /* ---- Color: borders ---- */
   --wh-border: #e7e4dd;
   --wh-border-dark: #232a3b;
+  --wh-border-azure: rgba(21, 169, 221, 0.24); /* azure-tinted, for dark sections */
 
   /* ---- Type ---- */
   --wh-font-display: "Fraunces", Georgia, "Times New Roman", serif;
@@ -65,7 +85,7 @@
 
 .wh .wh-em {
   font-style: italic;
-  color: var(--wh-accent);
+  color: var(--wh-accent-ink);
   font-variation-settings: "opsz" 144, "SOFT" 90, "WONK" 1;
 }
 
@@ -83,7 +103,8 @@
   content: "";
   width: 26px;
   height: 2px;
-  background: var(--wh-accent);
+  /* two-color tick: orange → brand azure */
+  background: linear-gradient(90deg, var(--wh-accent), var(--wh-accent-2));
 }
 
 .wh .wh-btn {
@@ -114,7 +135,7 @@
 }
 
 .wh .wh-btn--primary:hover {
-  background: #e8430f;
+  background: var(--wh-accent-hover);
   color: #fff;
 }
 
@@ -125,6 +146,8 @@
 }
 
 .wh .wh-btn--ghost-dark:hover {
-  border-color: rgba(255, 255, 255, 0.7);
+  /* brand azure edge + faint azure glow on dark */
+  border-color: var(--wh-accent-2);
   color: var(--wh-text-inv);
+  box-shadow: 0 10px 34px -14px rgba(21, 169, 221, 0.7);
 }

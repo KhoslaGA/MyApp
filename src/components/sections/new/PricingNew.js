@@ -2,7 +2,7 @@
 import { useRef } from "react";
 import Link from "next/link";
 import useTilt from "./useTilt";
-import Reveal from "./Reveal";
+import { SplitHeading, RevealText, useStagger } from "./homeMotion";
 import styles from "./PricingNew.module.css";
 
 const TIERS = [
@@ -60,18 +60,18 @@ const ADDONS = [
 const PricingNew = () => {
   const tiersRef = useRef(null);
   useTilt(tiersRef, `.${styles.tier}`);
+  useStagger(tiersRef, { stagger: 0.13 });
   return (
   <section className={`wh ${styles.wrap}`} id="pricing">
     <div className="wh-inner">
-      <p className="wh-eyebrow">Transparent pricing</p>
-      <h2 className={`wh-display ${styles.heading}`}>
+      <RevealText as="p" className="wh-eyebrow">Transparent pricing</RevealText>
+      <SplitHeading className={`wh-display ${styles.heading}`} delay={80}>
         Clear packages. <span className="wh-em">No mystery quotes.</span>
-      </h2>
+      </SplitHeading>
       <div className={styles.tiers} ref={tiersRef}>
-        {TIERS.map((t, ti) => (
-          <Reveal
+        {TIERS.map((t) => (
+          <div
             key={t.name}
-            delay={ti * 90}
             className={`${styles.tier} ${t.featured ? styles.featured : ""}`}
           >
             {t.featured && <span className={styles.badge}>Most popular</span>}
@@ -93,10 +93,10 @@ const PricingNew = () => {
             >
               Start with {t.name}
             </Link>
-          </Reveal>
+          </div>
         ))}
       </div>
-      <div className={styles.addons}>
+      <RevealText as="div" className={styles.addons}>
         <p className={styles.addonsTitle}>Monthly add-ons</p>
         <ul>
           {ADDONS.map((a) => (
@@ -106,7 +106,7 @@ const PricingNew = () => {
             </li>
           ))}
         </ul>
-      </div>
+      </RevealText>
     </div>
   </section>
 );

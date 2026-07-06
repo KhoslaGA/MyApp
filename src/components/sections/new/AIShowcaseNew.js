@@ -2,7 +2,7 @@
 import { useRef } from "react";
 import Link from "next/link";
 import useTilt from "./useTilt";
-import Reveal from "./Reveal";
+import { SplitHeading, RevealText, useStagger } from "./homeMotion";
 import styles from "./AIShowcaseNew.module.css";
 
 const ITEMS = [
@@ -14,37 +14,34 @@ const ITEMS = [
 const AIShowcaseNew = () => {
   const cardsRef = useRef(null);
   useTilt(cardsRef, `.${styles.card}`);
+  useStagger(cardsRef);
   return (
     <section className={`wh ${styles.wrap}`} id="ai">
       <div className="wh-inner">
-        <Reveal><p className={`wh-eyebrow ${styles.eyebrow}`}>The AI advantage</p></Reveal>
-        <Reveal delay={80}>
-          <h2 className={`wh-display ${styles.heading}`}>
-            Your website is step one.{" "}
-            <span className="wh-em">AI makes it work overtime.</span>
-          </h2>
-        </Reveal>
-        <Reveal delay={140}>
-          <p className={styles.lede}>
-            We build AI tools on the same technology powering the world&apos;s
-            leading assistants — set up for your business, your services, and your
-            customers. No hype, no black box: practical tools that answer, book,
-            and follow up.
-          </p>
-        </Reveal>
+        <RevealText as="p" className={`wh-eyebrow ${styles.eyebrow}`}>The AI advantage</RevealText>
+        <SplitHeading className={`wh-display ${styles.heading}`} delay={80}>
+          Your website is step one.{" "}
+          <span className="wh-em">AI makes it work overtime.</span>
+        </SplitHeading>
+        <RevealText as="p" className={styles.lede} delay={140}>
+          We build AI tools on the same technology powering the world&apos;s
+          leading assistants — set up for your business, your services, and your
+          customers. No hype, no black box: practical tools that answer, book,
+          and follow up.
+        </RevealText>
         <div className={styles.cards} ref={cardsRef}>
-          {ITEMS.map((it, i) => (
-            <Reveal key={it.title} delay={i * 90} className={styles.card}>
+          {ITEMS.map((it) => (
+            <div key={it.title} className={styles.card}>
               <span className={styles.stat}>{it.stat}</span>
               <h3>{it.title}</h3>
               <p>{it.desc}</p>
-            </Reveal>
+            </div>
           ))}
         </div>
-        <div className={styles.ctaRow}>
+        <RevealText as="div" className={styles.ctaRow}>
           <Link href="/contact" className="wh-btn wh-btn--primary">See a live demo</Link>
           <span className={styles.ctaNote}>We&apos;ll show you an AI receptionist answering a real call.</span>
-        </div>
+        </RevealText>
       </div>
     </section>
   );

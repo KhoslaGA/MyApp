@@ -1,7 +1,7 @@
 .wrap {
   background: var(--wh-bg-dark);
   color: var(--wh-text-inv-muted);
-  border-top: 1px solid var(--wh-border-dark);
+  border-top: 1px solid var(--wh-border-azure);
   padding: 64px 0 30px;
 }
 .top {
@@ -18,7 +18,7 @@
   margin: 0 0 12px;
 }
 .logo span {
-  color: var(--wh-accent);
+  color: var(--wh-accent-2-bright);
   font-style: italic;
 }
 .blurb {
@@ -47,7 +47,7 @@
   transition: color 200ms var(--wh-ease);
 }
 .col a:hover {
-  color: var(--wh-accent);
+  color: var(--wh-accent-2-bright);
 }
 .cities {
   border-top: 1px solid var(--wh-border-dark);

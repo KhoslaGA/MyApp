@@ -13,7 +13,9 @@
   height: 50vw;
   max-width: 720px;
   max-height: 720px;
-  background: radial-gradient(circle, rgba(255,77,28,0.18) 0%, transparent 65%);
+  background:
+    radial-gradient(circle at 60% 40%, var(--wh-glow-orange) 0%, transparent 60%),
+    radial-gradient(circle at 35% 65%, var(--wh-glow-azure) 0%, transparent 62%);
   pointer-events: none;
 }
 .inner { position: relative; z-index: 1; }

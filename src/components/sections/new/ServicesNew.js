@@ -2,7 +2,7 @@
 import { useRef } from "react";
 import Link from "next/link";
 import useTilt from "./useTilt";
-import Reveal from "./Reveal";
+import { SplitHeading, RevealText, useStagger } from "./homeMotion";
 import styles from "./ServicesNew.module.css";
 
 const SERVICES = [
@@ -19,35 +19,34 @@ const SERVICES = [
 const ServicesNew = () => {
   const gridRef = useRef(null);
   useTilt(gridRef, `.${styles.card}`);
+  useStagger(gridRef);
   return (
     <section className={`wh ${styles.wrap}`} id="services">
       <div className="wh-inner">
-        <Reveal>
-          <p className="wh-eyebrow">What we do</p>
-        </Reveal>
-        <Reveal delay={80}>
-          <h2 className={`wh-display ${styles.heading}`}>
-            Everything your business needs to{" "}
-            <span className="wh-em">win online.</span>
-          </h2>
-        </Reveal>
+        <RevealText as="p" className="wh-eyebrow">
+          What we do
+        </RevealText>
+        <SplitHeading className={`wh-display ${styles.heading}`} delay={80}>
+          Everything your business needs to{" "}
+          <span className="wh-em">win online.</span>
+        </SplitHeading>
         <div className={styles.grid} ref={gridRef}>
-          {SERVICES.map((s, i) => (
-            <Reveal key={s.title} delay={(i % 4) * 70} className={styles.card}>
+          {SERVICES.map((s) => (
+            <div key={s.title} className={styles.card}>
               <span className={`${styles.tag} ${s.tag === "AI" ? styles.tagAi : ""}`}>
                 {s.tag}
               </span>
               <h3>{s.title}</h3>
               <p>{s.desc}</p>
-            </Reveal>
+            </div>
           ))}
         </div>
-        <div className={styles.foot}>
+        <RevealText as="div" className={styles.foot}>
           <p>Not sure what you need? Start with a free 20-minute consult.</p>
           <Link href="/contact" className="wh-btn wh-btn--primary">
             Get a free consult
           </Link>
-        </div>
+        </RevealText>
       </div>
     </section>
   );

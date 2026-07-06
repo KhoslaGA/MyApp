@@ -1,8 +1,10 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AITerminal from "./AITerminal";
-import HeroCanvas from "./HeroCanvas";
+import LogoGlobe from "./LogoGlobe";
 import styles from "./HeroNew.module.css";
 
 const ROTATING = [
@@ -17,6 +19,12 @@ const HeroNew = () => {
   const [visible, setVisible] = useState(true);
   const [mounted, setMounted] = useState(false);
 
+  const heroRef = useRef(null);
+  const bgRef = useRef(null);
+  const leftColRef = useRef(null);
+  const rightColRef = useRef(null);
+  const globeRef = useRef(null);
+
   useEffect(() => {
     setMounted(true);
     const t = setInterval(() => {
@@ -29,13 +37,65 @@ const HeroNew = () => {
     return () => clearInterval(t);
   }, []);
 
+  // Scroll choreography: pin the hero briefly and parallax its layers at
+  // different depths while the canvas camera dives through the particle field.
+  // Skipped entirely for reduced-motion users (native scroll, no pin).
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: "top top",
+          end: "+=85%",
+          scrub: 1,
+          pin: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+          onUpdate: (self) => globeRef.current?.setScroll(self.progress),
+        },
+      });
+
+      // Depth layers, slowest (deepest) → fastest (closest):
+      // background sinks & dims as the camera pushes past it…
+      tl.to(bgRef.current, { yPercent: 12, opacity: 0.3, ease: "none" }, 0);
+      // …the terminal recedes into the mid-ground…
+      tl.to(
+        rightColRef.current,
+        { yPercent: -18, scale: 0.94, opacity: 0.1, ease: "none" },
+        0
+      );
+      // …and the headline lifts away in the foreground, moving most.
+      tl.to(
+        leftColRef.current,
+        { yPercent: -46, opacity: 0, ease: "none" },
+        0
+      );
+    }, heroRef);
+
+    // Fonts (Fraunces) can reflow the hero after mount — recompute positions.
+    if (document.fonts?.ready) {
+      document.fonts.ready.then(() => ScrollTrigger.refresh());
+    }
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className={`wh ${styles.hero}`}>
-      <HeroCanvas />
-      <div className={styles.glow} aria-hidden="true" />
-      <div className={styles.grid} aria-hidden="true" />
-      <div className={styles.noise} aria-hidden="true" />
+    <section className={`wh ${styles.hero}`} ref={heroRef}>
+      <div className={styles.bg} ref={bgRef} aria-hidden="true">
+        <div className={styles.glow} />
+        <div className={styles.grid} />
+        <div className={styles.noise} />
+      </div>
+      <div className={styles.globeLayer} aria-hidden="true">
+        <LogoGlobe ref={globeRef} variant="hero" />
+      </div>
       <div className={`wh-inner ${styles.inner}`}>
+        <div className={styles.leftCol} ref={leftColRef}>
         <div
           className={`${styles.left} ${mounted ? styles.leftIn : ""}`}
         >
@@ -75,12 +135,15 @@ const HeroNew = () => {
             <li>Automation</li>
           </ul>
         </div>
+        </div>
+        <div className={styles.rightCol} ref={rightColRef}>
         <div className={`${styles.right} ${mounted ? styles.rightIn : ""}`}>
           <AITerminal />
           <p className={styles.termCaption}>
             <span className="wh-em">Live demo</span> — this is the AI
             receptionist we&apos;d set up for you.
           </p>
+        </div>
         </div>
       </div>
     </section>

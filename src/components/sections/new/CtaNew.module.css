@@ -15,11 +15,10 @@
   height: 70vw;
   max-width: 900px;
   max-height: 900px;
-  background: radial-gradient(
-    circle,
-    rgba(255, 77, 28, 0.14) 0%,
-    transparent 65%
-  );
+  /* azure aura behind the globe (top) blending into a warm orange base */
+  background:
+    radial-gradient(circle at 50% 32%, var(--wh-glow-azure) 0%, transparent 55%),
+    radial-gradient(circle at 50% 74%, var(--wh-glow-orange) 0%, transparent 60%);
   pointer-events: none;
 }
 .inner {

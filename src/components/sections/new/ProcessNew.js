@@ -1,5 +1,6 @@
 "use client";
-import Reveal from "./Reveal";
+import { useRef } from "react";
+import { SplitHeading, RevealText, useStagger } from "./homeMotion";
 import styles from "./ProcessNew.module.css";
 
 const STEPS = [
@@ -25,24 +26,28 @@ const STEPS = [
   },
 ];
 
-const ProcessNew = () => (
-  <section className={`wh ${styles.wrap}`} id="process">
-    <div className="wh-inner">
-      <p className="wh-eyebrow">How it works</p>
-      <h2 className={`wh-display ${styles.heading}`}>
-        From first call to <span className="wh-em">first customer.</span>
-      </h2>
-      <div className={styles.steps}>
-        {STEPS.map((s, i) => (
-          <Reveal key={s.n} delay={i * 80} className={styles.step}>
-            <span className={styles.num}>{s.n}</span>
-            <h3>{s.title}</h3>
-            <p>{s.desc}</p>
-          </Reveal>
-        ))}
+const ProcessNew = () => {
+  const stepsRef = useRef(null);
+  useStagger(stepsRef, { stagger: 0.09 });
+  return (
+    <section className={`wh ${styles.wrap}`} id="process">
+      <div className="wh-inner">
+        <RevealText as="p" className="wh-eyebrow">How it works</RevealText>
+        <SplitHeading className={`wh-display ${styles.heading}`} delay={80}>
+          From first call to <span className="wh-em">first customer.</span>
+        </SplitHeading>
+        <div className={styles.steps} ref={stepsRef}>
+          {STEPS.map((s) => (
+            <div key={s.n} className={styles.step}>
+              <span className={styles.num}>{s.n}</span>
+              <h3>{s.title}</h3>
+              <p>{s.desc}</p>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default ProcessNew;

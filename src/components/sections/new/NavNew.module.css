@@ -44,7 +44,7 @@
   transition: color 200ms var(--wh-ease);
 }
 .links a:hover {
-  color: var(--wh-text-inv);
+  color: var(--wh-accent-2-bright);
 }
 .navCta {
   padding: 11px 22px !important;

@@ -23,7 +23,7 @@
 }
 .featured {
   border-color: var(--wh-accent);
-  box-shadow: 0 24px 60px rgba(255, 77, 28, 0.12);
+  box-shadow: 0 24px 60px rgba(14, 126, 168, 0.16);
 }
 .badge {
   position: absolute;

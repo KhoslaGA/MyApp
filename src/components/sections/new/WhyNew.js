@@ -1,5 +1,6 @@
 "use client";
-import Reveal from "./Reveal";
+import { useRef } from "react";
+import { SplitHeading, RevealText, useStagger } from "./homeMotion";
 import styles from "./WhyNew.module.css";
 
 const POINTS = [
@@ -21,33 +22,37 @@ const POINTS = [
   },
 ];
 
-const WhyNew = () => (
-  <section className={`wh ${styles.wrap}`}>
-    <div className="wh-inner">
-      <div className={styles.split}>
-        <div className={styles.left}>
-          <p className="wh-eyebrow">Why Webhub4U</p>
-          <h2 className={`wh-display ${styles.heading}`}>
-            Big-agency quality.{" "}
-            <span className="wh-em">Small-team accountability.</span>
-          </h2>
-          <p className={styles.lede}>
-            We&apos;re a lean studio by design. That means lower overhead,
-            faster answers, and a builder who actually knows your name — not a
-            ticket number.
-          </p>
-        </div>
-        <div className={styles.points}>
-          {POINTS.map((p, i) => (
-            <Reveal key={p.title} delay={i * 70} className={styles.point}>
-              <h3>{p.title}</h3>
-              <p>{p.desc}</p>
-            </Reveal>
-          ))}
+const WhyNew = () => {
+  const pointsRef = useRef(null);
+  useStagger(pointsRef, { stagger: 0.09 });
+  return (
+    <section className={`wh ${styles.wrap}`}>
+      <div className="wh-inner">
+        <div className={styles.split}>
+          <div className={styles.left}>
+            <RevealText as="p" className="wh-eyebrow">Why Webhub4U</RevealText>
+            <SplitHeading className={`wh-display ${styles.heading}`} delay={80}>
+              Big-agency quality.{" "}
+              <span className="wh-em">Small-team accountability.</span>
+            </SplitHeading>
+            <RevealText as="p" className={styles.lede} delay={140}>
+              We&apos;re a lean studio by design. That means lower overhead,
+              faster answers, and a builder who actually knows your name — not a
+              ticket number.
+            </RevealText>
+          </div>
+          <div className={styles.points} ref={pointsRef}>
+            {POINTS.map((p) => (
+              <div key={p.title} className={styles.point}>
+                <h3>{p.title}</h3>
+                <p>{p.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default WhyNew;

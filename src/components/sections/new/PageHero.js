@@ -1,7 +1,9 @@
+import ConstellationBg from "./ConstellationBg";
 import styles from "./PageHero.module.css";
 
 const PageHero = ({ eyebrow, title, sub }) => (
   <section className={`wh ${styles.hero}`}>
+    <ConstellationBg />
     <div className={styles.glow} aria-hidden="true" />
     <div className={`wh-inner ${styles.inner}`}>
       {eyebrow && <p className={`wh-eyebrow ${styles.eyebrow}`}>{eyebrow}</p>}

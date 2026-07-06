@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { forwardRef, useEffect, useImperativeHandle, useRef } from "react";
 import styles from "./HeroCanvas.module.css";
 
 /**
@@ -8,9 +8,26 @@ import styles from "./HeroCanvas.module.css";
  *  - pixel ratio capped at 1.5
  *  - rendering pauses when the hero is off-screen
  *  - skipped entirely for reduced-motion users or if WebGL is unavailable
+ *
+ * Scroll-driven: parent feeds normalized progress (0→1) via the imperative
+ * `setScroll` handle; the render loop eases the camera forward through the
+ * field so scrolling "dives" into the particles. Under reduced-motion the
+ * effect never mounts, so setScroll is a harmless no-op.
  */
-const HeroCanvas = () => {
+const HeroCanvas = forwardRef((props, ref) => {
   const mountRef = useRef(null);
+  // Target scroll progress written by the parent, read by the render loop.
+  const scrollRef = useRef(0);
+
+  useImperativeHandle(
+    ref,
+    () => ({
+      setScroll: (p) => {
+        scrollRef.current = p;
+      },
+    }),
+    []
+  );
 
   useEffect(() => {
     const mount = mountRef.current;
@@ -63,8 +80,9 @@ const HeroCanvas = () => {
         const colors = new Float32Array(COUNT * 3);
         const base = new Float32Array(COUNT * 2); // x,z base coords
 
-        const cNear = new THREE.Color(0xff4d1c); // accent
-        const cFar = new THREE.Color(0x2c3550); // steel navy
+        // Pure azure ocean — leans fully into the logo's cyan.
+        const cAzure = new THREE.Color(0x2fbfec); // bright brand azure (near)
+        const cDeep = new THREE.Color(0x123a5a); // deep azure navy (far)
 
         let i = 0;
         for (let r = 0; r < ROWS; r++) {
@@ -77,12 +95,9 @@ const HeroCanvas = () => {
             base[i * 2] = x;
             base[i * 2 + 1] = z;
 
-            // color: accent hotspot toward the right-front, fading to navy
-            const t = Math.min(
-              1,
-              Math.hypot((x - 6) / 14, (z - 2) / 8)
-            );
-            const col = cNear.clone().lerp(cFar, t);
+            // azure gradient by distance from the field centre
+            const t = Math.min(1, Math.hypot(x / 15, z / 8.5));
+            const col = cAzure.clone().lerp(cDeep, t);
             colors[i * 3] = col.r;
             colors[i * 3 + 1] = col.g;
             colors[i * 3 + 2] = col.b;
@@ -154,6 +169,10 @@ const HeroCanvas = () => {
         const clock = new THREE.Clock();
         const pos = geo.attributes.position;
 
+        // Camera rest pose (matches the initial set above) + eased scroll dive.
+        const camBase = { y: 4.6, z: 9 };
+        let scrollEased = 0;
+
         function animate() {
           if (!running || disposed) return;
           raf = requestAnimationFrame(animate);
@@ -162,6 +181,13 @@ const HeroCanvas = () => {
           // ease mouse
           mouse.x += (mouse.tx - mouse.x) * 0.08;
           mouse.z += (mouse.tz - mouse.z) * 0.08;
+
+          // ease scroll → push the camera forward through the field
+          scrollEased += (scrollRef.current - scrollEased) * 0.1;
+          const s = scrollEased;
+          camera.position.z = camBase.z - s * 6.2; // 9 → ~2.8, dive in
+          camera.position.y = camBase.y - s * 2.4; // 4.6 → ~2.2, drop to the surface
+          camera.lookAt(0, s * 0.5, -s * 2); // tilt the gaze forward as we descend
 
           for (let p = 0; p < COUNT; p++) {
             const bx = base[p * 2];
@@ -214,6 +240,8 @@ const HeroCanvas = () => {
   }, []);
 
   return <div ref={mountRef} className={styles.canvas} aria-hidden="true" />;
-};
+});
+
+HeroCanvas.displayName = "HeroCanvas";
 
 export default HeroCanvas;

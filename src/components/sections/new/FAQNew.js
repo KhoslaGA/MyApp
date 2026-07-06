@@ -1,5 +1,6 @@
 "use client";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { SplitHeading, RevealText, useStagger } from "./homeMotion";
 import styles from "./FAQNew.module.css";
 
 const FAQS = [
@@ -31,14 +32,16 @@ const FAQS = [
 
 const FAQNew = () => {
   const [open, setOpen] = useState(0);
+  const listRef = useRef(null);
+  useStagger(listRef, { y: 24, scale: 1, rotateX: 0, stagger: 0.07 });
   return (
     <section className={`wh ${styles.wrap}`} id="faq">
       <div className="wh-inner">
-        <p className="wh-eyebrow">Questions</p>
-        <h2 className={`wh-display ${styles.heading}`}>
+        <RevealText as="p" className="wh-eyebrow">Questions</RevealText>
+        <SplitHeading className={`wh-display ${styles.heading}`} delay={80}>
           Asked <span className="wh-em">often.</span>
-        </h2>
-        <div className={styles.list}>
+        </SplitHeading>
+        <div className={styles.list} ref={listRef}>
           {FAQS.map((f, i) => (
             <div key={f.q} className={styles.item}>
               <button

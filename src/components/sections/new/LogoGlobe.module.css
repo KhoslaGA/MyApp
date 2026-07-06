@@ -5,3 +5,16 @@
   filter: drop-shadow(0 0 40px rgba(31, 177, 230, 0.25));
 }
 .globe canvas { display: block; width: 100% !important; height: 100% !important; }
+
+/* Hero centerpiece: a large, fluid, pointer-transparent background object. */
+.heroGlobe {
+  width: min(84vmin, 720px);
+  height: min(84vmin, 720px);
+  position: relative;
+  pointer-events: none;
+  filter: drop-shadow(0 0 60px rgba(31, 177, 230, 0.22));
+}
+.heroGlobe canvas { display: block; width: 100% !important; height: 100% !important; }
+@media (max-width: 640px) {
+  .heroGlobe { width: min(94vw, 440px); height: min(94vw, 440px); opacity: 0.8; }
+}
