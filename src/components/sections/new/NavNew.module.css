@@ -24,8 +24,9 @@
   text-decoration: none;
 }
 .logoImg {
-  width: 132px;
+  width: 116px;
   height: auto;
+  display: block;
 }
 @media (max-width: 640px) {
   .logoImg { width: 108px; }

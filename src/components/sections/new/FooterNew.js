@@ -19,10 +19,10 @@ const FooterNew = () => (
       <div className={styles.top}>
         <div className={styles.brand}>
           <Image
-            src="/logo-white-nav.png"
+            src="/logo-nav-t.png"
             alt="Webhub4U"
-            width={168}
-            height={120}
+            width={190}
+            height={93}
             className={styles.logoImg}
           />
           <p className={styles.blurb}>

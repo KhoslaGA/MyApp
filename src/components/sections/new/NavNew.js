@@ -30,10 +30,10 @@ const NavNew = () => {
       <div className={`wh-inner ${styles.bar}`}>
         <Link href="/" className={styles.logo} onClick={() => setOpen(false)}>
           <Image
-            src="/logo-white-nav.png"
+            src="/logo-nav-t.png"
             alt="Webhub4U"
-            width={168}
-            height={120}
+            width={190}
+            height={93}
             priority
             className={styles.logoImg}
           />
