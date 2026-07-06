@@ -19,16 +19,16 @@
   height: 74px;
 }
 .logo {
-  font-family: var(--wh-font-display);
-  font-size: 1.45rem;
-  font-weight: 600;
-  color: var(--wh-text-inv);
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  letter-spacing: -0.01em;
 }
-.logo span {
-  color: var(--wh-accent);
-  font-style: italic;
+.logoImg {
+  width: 132px;
+  height: auto;
+}
+@media (max-width: 640px) {
+  .logoImg { width: 108px; }
 }
 .links {
   display: flex;

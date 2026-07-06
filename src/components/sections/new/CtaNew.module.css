@@ -45,3 +45,14 @@
   gap: 14px;
   flex-wrap: wrap;
 }
+
+.globeWrap {
+  display: flex;
+  justify-content: center;
+  margin: -30px auto 6px;
+  max-width: 420px;
+}
+@media (max-width: 640px) {
+  .globeWrap { max-width: 300px; margin-top: -20px; }
+  .globeWrap > div { width: 300px !important; height: 300px !important; }
+}

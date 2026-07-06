@@ -79,3 +79,5 @@
     grid-template-columns: 1fr;
   }
 }
+
+.logoImg { width: 150px; height: auto; margin-bottom: 14px; }

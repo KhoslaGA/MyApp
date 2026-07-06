@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import styles from "./FooterNew.module.css";
 
 const CITIES = [
@@ -17,9 +18,13 @@ const FooterNew = () => (
     <div className="wh-inner">
       <div className={styles.top}>
         <div className={styles.brand}>
-          <p className={styles.logo}>
-            webhub<span>4u</span>
-          </p>
+          <Image
+            src="/logo-white-nav.png"
+            alt="Webhub4U"
+            width={168}
+            height={120}
+            className={styles.logoImg}
+          />
           <p className={styles.blurb}>
             Websites, local SEO, and AI-powered tools for businesses across
             the Greater Toronto Area. Based in Brampton, Ontario.

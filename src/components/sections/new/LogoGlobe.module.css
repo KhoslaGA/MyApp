@@ -1,0 +1,7 @@
+.globe {
+  max-width: 100%;
+  margin: 0 auto;
+  position: relative;
+  filter: drop-shadow(0 0 40px rgba(31, 177, 230, 0.25));
+}
+.globe canvas { display: block; width: 100% !important; height: 100% !important; }

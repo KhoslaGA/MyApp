@@ -1,9 +1,13 @@
 import Link from "next/link";
+import LogoGlobe from "./LogoGlobe";
 import styles from "./CtaNew.module.css";
 
 const CtaNew = () => (
   <section className={`wh ${styles.wrap}`}>
     <div className={`wh-inner ${styles.inner}`}>
+      <div className={styles.globeWrap}>
+        <LogoGlobe size={420} />
+      </div>
       <h2 className={`wh-display ${styles.heading}`}>
         Ready to look like the{" "}
         <span className="wh-em">business you actually are?</span>

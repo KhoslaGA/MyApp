@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import styles from "./NavNew.module.css";
 
 const LINKS = [
@@ -28,7 +29,14 @@ const NavNew = () => {
     >
       <div className={`wh-inner ${styles.bar}`}>
         <Link href="/" className={styles.logo} onClick={() => setOpen(false)}>
-          webhub<span>4u</span>
+          <Image
+            src="/logo-white-nav.png"
+            alt="Webhub4U"
+            width={168}
+            height={120}
+            priority
+            className={styles.logoImg}
+          />
         </Link>
         <nav className={`${styles.links} ${open ? styles.linksOpen : ""}`}>
           {LINKS.map((l) => (
