@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import AITerminal from "./AITerminal";
+import HeroCanvas from "./HeroCanvas";
 import styles from "./HeroNew.module.css";
 
 const ROTATING = [
@@ -30,6 +31,7 @@ const HeroNew = () => {
 
   return (
     <section className={`wh ${styles.hero}`}>
+      <HeroCanvas />
       <div className={styles.glow} aria-hidden="true" />
       <div className={styles.grid} aria-hidden="true" />
       <div className={styles.noise} aria-hidden="true" />

@@ -40,7 +40,8 @@
 }
 .inner {
   position: relative;
-  z-index: 1;
+  z-index: 2;
+  pointer-events: none;
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
   gap: clamp(30px, 5vw, 72px);
@@ -118,4 +119,19 @@
 @media (max-width: 640px) {
   .hero { padding-top: 116px; }
   .ctas { margin-bottom: 32px; }
+}
+
+.inner a, .inner button { pointer-events: auto; }
+.right { pointer-events: auto; }
+
+/* Terminal float: slow levitation for 3D depth */
+.right > :global(div) {
+  animation: whfloat 7s ease-in-out infinite alternate;
+}
+@keyframes whfloat {
+  from { transform: translateY(0) rotateX(0.4deg) rotateY(-0.6deg); }
+  to { transform: translateY(-12px) rotateX(-0.5deg) rotateY(0.7deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .right > :global(div) { animation: none; }
 }
