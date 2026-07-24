@@ -56,6 +56,19 @@
 .cityList {
   font-size: 0.88rem;
   margin: 0;
+  color: var(--wh-text-inv-muted);
+  line-height: 2.1;
+}
+.cities a {
+  color: var(--wh-text-inv-muted);
+  text-decoration: none;
+  transition: color 200ms var(--wh-ease);
+}
+.cities a:hover {
+  color: var(--wh-accent-2-bright);
+}
+.citiesTitleLink {
+  color: var(--wh-text-inv) !important;
 }
 .bottom {
   border-top: 1px solid var(--wh-border-dark);

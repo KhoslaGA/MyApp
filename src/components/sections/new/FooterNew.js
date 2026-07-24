@@ -1,18 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import PhoneLink from "./PhoneLink";
+import { LOCATIONS } from "@/data/locations";
 import styles from "./FooterNew.module.css";
-
-const CITIES = [
-  "Brampton",
-  "Mississauga",
-  "Toronto",
-  "Vaughan",
-  "Markham",
-  "Oakville",
-  "Milton",
-  "Burlington",
-];
 
 const FooterNew = () => (
   <footer className={`wh ${styles.wrap}`}>
@@ -56,8 +46,19 @@ const FooterNew = () => (
         </div>
       </div>
       <div className={styles.cities}>
-        <p className={styles.colTitle}>Serving the GTA</p>
-        <p className={styles.cityList}>{CITIES.join(" · ")}</p>
+        <p className={styles.colTitle}>
+          <Link href="/locations" className={styles.citiesTitleLink}>
+            Areas we serve
+          </Link>
+        </p>
+        <p className={styles.cityList}>
+          {LOCATIONS.map((c, i) => (
+            <span key={c.slug}>
+              {i > 0 ? " · " : ""}
+              <Link href={`/locations/${c.slug}`}>{c.name}</Link>
+            </span>
+          ))}
+        </p>
       </div>
       <div className={styles.bottom}>
         <p>
