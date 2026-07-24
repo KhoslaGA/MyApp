@@ -6200,7 +6200,7 @@ button.default__button {
   height: 100%;
   width: 100%;
   content: "";
-  background: url(../assets/img/blog/blog__hover.png);
+  background: none;
   top: 0;
   left: 0;
   opacity: 0;
