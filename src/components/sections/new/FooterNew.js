@@ -33,7 +33,8 @@ const FooterNew = () => (
         <div className={styles.col}>
           <p className={styles.colTitle}>Services</p>
           <Link href="/#services">Web design</Link>
-          <Link href="/#ai">AI receptionist</Link>
+          <Link href="/ai-receptionist">AI receptionist</Link>
+          <Link href="/missed-call-text-back">Missed-call text-back</Link>
           <Link href="/#ai">AI chatbots</Link>
           <Link href="/#services">Local SEO</Link>
           <Link href="/#pricing">Pricing</Link>
