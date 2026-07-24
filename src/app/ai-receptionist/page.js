@@ -276,6 +276,12 @@ export default function AiReceptionist() {
             We only win when you stop losing calls. No long contracts, no setup
             traps — cancel anytime.
           </p>
+          <Link
+            href="/guarantee"
+            className={`wh-btn wh-btn--ghost-dark ${styles.guaranteeCta}`}
+          >
+            Read the full guarantee →
+          </Link>
         </div>
       </section>
 

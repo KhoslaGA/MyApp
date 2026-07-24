@@ -7,6 +7,7 @@ export default function sitemap() {
     { path: "/ai-receptionist", priority: 0.9, changeFrequency: "weekly" },
     { path: "/missed-call-text-back", priority: 0.9, changeFrequency: "weekly" },
     { path: "/services", priority: 0.8, changeFrequency: "monthly" },
+    { path: "/guarantee", priority: 0.7, changeFrequency: "monthly" },
     { path: "/locations", priority: 0.8, changeFrequency: "monthly" },
     { path: "/roi", priority: 0.6, changeFrequency: "monthly" },
     { path: "/projects", priority: 0.7, changeFrequency: "monthly" },

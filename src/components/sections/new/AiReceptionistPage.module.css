@@ -277,6 +277,9 @@
   margin: 0 auto;
   line-height: 1.7;
 }
+.guaranteeCta {
+  margin-top: 26px;
+}
 
 /* ---------- FAQ ---------- */
 .faq {

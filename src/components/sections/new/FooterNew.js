@@ -34,6 +34,7 @@ const FooterNew = () => (
           <p className={styles.colTitle}>Company</p>
           <Link href="/about">About</Link>
           <Link href="/projects">Work</Link>
+          <Link href="/guarantee">Guarantee</Link>
           <Link href="/contact">Contact</Link>
           <Link href="/faq">FAQ</Link>
           <Link href="/privacy-policy">Privacy</Link>

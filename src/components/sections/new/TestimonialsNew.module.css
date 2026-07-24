@@ -1,0 +1,71 @@
+.wrap {
+  background: var(--wh-bg);
+  padding: clamp(70px, 10vh, 120px) 0;
+}
+.heading {
+  font-size: clamp(2rem, 4.4vw, 3.4rem);
+  margin: 22px 0 44px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.card {
+  margin: 0;
+  border: 1px solid var(--wh-border);
+  border-radius: var(--wh-radius-lg);
+  padding: 30px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.quote {
+  margin: 0;
+  color: var(--wh-text);
+  font-size: 1.02rem;
+  line-height: 1.6;
+}
+.quote::before {
+  content: "\201C";
+  color: var(--wh-accent);
+  font-family: var(--wh-font-display);
+  font-size: 1.4rem;
+  margin-right: 2px;
+}
+.by {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: auto;
+}
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  background: var(--wh-accent-soft);
+  color: var(--wh-accent-ink);
+  font-weight: 700;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+.meta {
+  display: flex;
+  flex-direction: column;
+}
+.meta strong {
+  color: var(--wh-text);
+  font-size: 0.95rem;
+}
+.role {
+  color: var(--wh-text-muted);
+  font-size: 0.85rem;
+}
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
