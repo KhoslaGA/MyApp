@@ -1,4 +1,5 @@
 import { LOCATIONS } from "@/data/locations";
+import { getAllPosts } from "@/lib/blog";
 
 export default function sitemap() {
   const base = "https://webhub4u.com";
@@ -13,8 +14,8 @@ export default function sitemap() {
     { path: "/projects", priority: 0.7, changeFrequency: "monthly" },
     { path: "/about", priority: 0.7, changeFrequency: "monthly" },
     { path: "/contact", priority: 0.7, changeFrequency: "monthly" },
+    { path: "/blogs", priority: 0.7, changeFrequency: "weekly" },
     { path: "/faq", priority: 0.6, changeFrequency: "monthly" },
-    { path: "/blogs", priority: 0.6, changeFrequency: "monthly" },
     { path: "/privacy-policy", priority: 0.3, changeFrequency: "yearly" },
   ];
   const cityRoutes = LOCATIONS.map((c) => ({
@@ -22,9 +23,16 @@ export default function sitemap() {
     priority: 0.8,
     changeFrequency: "monthly",
   }));
-  return [...routes, ...cityRoutes].map((r) => ({
+  const postRoutes = getAllPosts().map((p) => ({
+    path: `/blogs/${p.slug}`,
+    priority: 0.6,
+    changeFrequency: "monthly",
+    lastModified: p.date ? new Date(p.date) : new Date(),
+  }));
+
+  return [...routes, ...cityRoutes, ...postRoutes].map((r) => ({
     url: `${base}${r.path}`,
-    lastModified: new Date(),
+    lastModified: r.lastModified || new Date(),
     changeFrequency: r.changeFrequency,
     priority: r.priority,
   }));
