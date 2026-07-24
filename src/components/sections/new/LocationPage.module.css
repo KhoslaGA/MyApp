@@ -1,0 +1,217 @@
+.h2 {
+  font-size: clamp(1.8rem, 4vw, 2.9rem);
+  margin: 18px 0 18px;
+}
+
+/* ---------- INTRO ---------- */
+.intro {
+  background: var(--wh-bg);
+  padding: clamp(56px, 8vh, 96px) 0;
+}
+.crumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--wh-text-muted);
+  margin-bottom: 30px;
+}
+.crumb a {
+  color: var(--wh-accent-ink);
+  font-weight: 500;
+}
+.crumb span[aria-current] {
+  color: var(--wh-text);
+}
+.prose {
+  max-width: 70ch;
+}
+.prose p {
+  color: var(--wh-text);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  margin: 0 0 20px;
+}
+.prose p:last-child {
+  margin-bottom: 0;
+}
+.hoods {
+  margin-top: 36px;
+  padding-top: 30px;
+  border-top: 1px solid var(--wh-border);
+}
+.hoodsLabel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--wh-text-muted);
+  margin: 0 0 16px;
+}
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.chip {
+  font-size: 0.9rem;
+  color: var(--wh-accent-2-ink);
+  background: var(--wh-accent-2-soft);
+  border-radius: 999px;
+  padding: 7px 16px;
+}
+
+/* ---------- SERVICES ---------- */
+.services {
+  background: var(--wh-bg-soft);
+  padding: clamp(64px, 9vh, 110px) 0;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 36px;
+}
+.card {
+  display: block;
+  background: var(--wh-bg);
+  border: 1px solid var(--wh-border);
+  border-radius: var(--wh-radius-lg);
+  padding: 26px 24px;
+  text-decoration: none;
+  transition: border-color 200ms var(--wh-ease), transform 200ms var(--wh-ease);
+}
+.card:hover {
+  border-color: var(--wh-accent);
+  transform: translateY(-3px);
+}
+.tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--wh-text-muted);
+  border: 1px solid var(--wh-border);
+  border-radius: 999px;
+  padding: 4px 12px;
+}
+.tagAi {
+  color: var(--wh-accent-ink);
+  border-color: var(--wh-accent-soft);
+  background: var(--wh-accent-soft);
+}
+.card h3 {
+  font-size: 1.12rem;
+  font-weight: 650;
+  margin: 16px 0 8px;
+  color: var(--wh-text);
+}
+.card p {
+  color: var(--wh-text-muted);
+  line-height: 1.6;
+  margin: 0 0 14px;
+  font-size: 0.92rem;
+}
+.from {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--wh-accent-ink);
+}
+
+/* ---------- FAQ ---------- */
+.faq {
+  background: var(--wh-bg);
+  padding: clamp(64px, 9vh, 110px) 0;
+}
+
+/* ---------- NEAR ---------- */
+.near {
+  background: var(--wh-bg-soft);
+  border-top: 1px solid var(--wh-border);
+  padding: 44px 0;
+}
+.nearInner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 26px;
+  align-items: center;
+}
+.nearLabel {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--wh-text-muted);
+}
+.nearLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.nearLinks a {
+  color: var(--wh-accent-ink);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.allLink {
+  color: var(--wh-text) !important;
+}
+
+/* ---------- HUB ---------- */
+.hub {
+  background: var(--wh-bg);
+  padding: clamp(64px, 9vh, 110px) 0;
+}
+.hubGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.cityCard {
+  display: block;
+  border: 1px solid var(--wh-border);
+  border-radius: var(--wh-radius-lg);
+  padding: 30px 28px;
+  text-decoration: none;
+  transition: border-color 200ms var(--wh-ease), transform 200ms var(--wh-ease);
+}
+.cityCard:hover {
+  border-color: var(--wh-accent);
+  transform: translateY(-3px);
+}
+.cityCard h2 {
+  font-family: var(--wh-font-display);
+  font-size: 1.5rem;
+  color: var(--wh-text);
+  margin: 0 0 8px;
+}
+.cityCard p {
+  color: var(--wh-text-muted);
+  font-size: 0.9rem;
+  margin: 0 0 18px;
+}
+.cityCta {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--wh-accent-ink);
+}
+.hubNote {
+  margin: 40px 0 0;
+  color: var(--wh-text-muted);
+  text-align: center;
+}
+.hubNote a {
+  color: var(--wh-accent-ink);
+  font-weight: 600;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 900px) {
+  .grid,
+  .hubGrid {
+    grid-template-columns: 1fr;
+  }
+}

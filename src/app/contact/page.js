@@ -1,6 +1,7 @@
 import PageShell from "@/components/sections/new/PageShell";
 import PageHero from "@/components/sections/new/PageHero";
 import ContactForm from "@/components/sections/new/ContactForm";
+import PhoneLink from "@/components/sections/new/PhoneLink";
 import styles from "@/components/sections/new/ContactPage.module.css";
 
 export const metadata = {
@@ -28,6 +29,10 @@ export default function Contact() {
             <ContactForm />
           </div>
           <aside className={styles.info}>
+            <div className={styles.infoBlock}>
+              <p className={styles.infoLabel}>Call</p>
+              <PhoneLink source="contact" />
+            </div>
             <div className={styles.infoBlock}>
               <p className={styles.infoLabel}>Email</p>
               <a href="mailto:webhub4u@gmail.com">webhub4u@gmail.com</a>

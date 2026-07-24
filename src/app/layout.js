@@ -1,14 +1,8 @@
 import { Inter } from "next/font/google";
-import "@/assets/css/bootstrap.min.css";
-import "aos/dist/aos.css";
-import "@/assets/css/icofont.min.css";
-import "@/assets/css/glightbox.min.css";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
 import "./globals.css";
 import "./theme.css";
 import SmoothScroll from "@/components/sections/new/SmoothScroll";
+import Analytics from "@/components/analytics/Analytics";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -50,6 +44,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className={`${inter.className}`}>
         <SmoothScroll>{children}</SmoothScroll>
+        <Analytics />
       </body>
     </html>
   );

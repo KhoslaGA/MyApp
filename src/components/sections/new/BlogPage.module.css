@@ -8,4 +8,5 @@
 .soon { font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--wh-text-muted); border: 1px solid var(--wh-border); border-radius: 999px; padding: 5px 12px; align-self: flex-start; }
 .note { text-align: center; margin-top: 40px; color: var(--wh-text-muted); }
 .note a { color: var(--wh-accent); }
+.meta { font-size: 0.82rem; font-weight: 600; color: var(--wh-accent-ink); margin-top: auto; }
 @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }

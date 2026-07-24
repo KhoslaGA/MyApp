@@ -1,0 +1,324 @@
+.h2 {
+  font-size: clamp(1.9rem, 4.2vw, 3.1rem);
+  margin: 20px 0 18px;
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--wh-bg-dark);
+  color: var(--wh-text-inv);
+  padding: clamp(130px, 18vh, 200px) 0 clamp(70px, 10vh, 110px);
+}
+.heroGlow {
+  position: absolute;
+  top: -18%;
+  left: -10%;
+  width: 55vw;
+  height: 55vw;
+  max-width: 720px;
+  max-height: 720px;
+  background: radial-gradient(circle at 50% 50%, var(--wh-glow-azure) 0%, transparent 62%);
+  pointer-events: none;
+}
+.heroInner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(30px, 5vw, 64px);
+  align-items: center;
+}
+.heroEyebrow {
+  color: var(--wh-text-inv-muted);
+}
+.h1 {
+  font-size: clamp(2.4rem, 5.2vw, 4.2rem);
+  color: var(--wh-text-inv);
+  margin: 20px 0 20px;
+  max-width: 16ch;
+}
+.heroSub {
+  color: var(--wh-text-inv-muted);
+  line-height: 1.7;
+  font-size: 1.08rem;
+  max-width: 54ch;
+  margin: 0 0 30px;
+}
+.heroCtas {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* ---------- PHONE MOCKUP ---------- */
+.phoneWrap {
+  display: flex;
+  justify-content: center;
+}
+.phone {
+  width: 300px;
+  max-width: 100%;
+  background: #05070d;
+  border: 1px solid var(--wh-border-dark);
+  border-radius: 34px;
+  padding: 26px 16px 22px;
+  position: relative;
+  box-shadow: 0 40px 90px -40px rgba(21, 169, 221, 0.5);
+}
+.notch {
+  width: 120px;
+  height: 6px;
+  border-radius: 999px;
+  background: #222a3b;
+  margin: 0 auto 20px;
+}
+.thread {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.sys {
+  align-self: center;
+  font-size: 0.72rem;
+  color: var(--wh-text-inv-muted);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 5px 12px;
+  border-radius: 999px;
+  text-align: center;
+}
+.bubble {
+  max-width: 82%;
+  padding: 10px 14px;
+  border-radius: 16px;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+.out {
+  align-self: flex-end;
+  background: var(--wh-accent);
+  color: #fff;
+  border-bottom-right-radius: 5px;
+}
+.in {
+  align-self: flex-start;
+  background: #1c2434;
+  color: var(--wh-text-inv);
+  border-bottom-left-radius: 5px;
+}
+
+/* ---------- BEFORE / AFTER ---------- */
+.contrast {
+  background: var(--wh-bg);
+  padding: clamp(60px, 8vh, 96px) 0;
+}
+.contrastInner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+.card {
+  border-radius: var(--wh-radius-lg);
+  padding: 32px;
+  border: 1px solid var(--wh-border);
+}
+.without {
+  background: var(--wh-bg-soft);
+}
+.with {
+  background: var(--wh-bg);
+  border-color: var(--wh-accent);
+  box-shadow: 0 30px 70px -55px rgba(14, 126, 168, 0.6);
+}
+.cardLabel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--wh-text-muted);
+  margin: 0 0 16px;
+}
+.cardLine {
+  margin: 0 0 6px;
+  color: var(--wh-text);
+  font-size: 1.02rem;
+}
+.cardOut {
+  margin: 16px 0 0;
+  font-family: var(--wh-font-display);
+  font-size: 1.5rem;
+  color: #c0392b;
+}
+.cardWin {
+  margin: 16px 0 0;
+  font-family: var(--wh-font-display);
+  font-size: 1.5rem;
+  color: var(--wh-accent-ink);
+}
+
+/* ---------- HOW ---------- */
+.how {
+  background: var(--wh-bg-soft);
+  padding: clamp(70px, 10vh, 120px) 0;
+}
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 40px;
+}
+.step {
+  background: var(--wh-bg);
+  border: 1px solid var(--wh-border);
+  border-radius: var(--wh-radius-lg);
+  padding: 30px 26px;
+}
+.stepN {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: var(--wh-accent-soft);
+  color: var(--wh-accent-ink);
+  font-family: var(--wh-font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+.step h3 {
+  font-size: 1.12rem;
+  font-weight: 650;
+  margin: 14px 0 10px;
+  color: var(--wh-text);
+}
+.step p {
+  color: var(--wh-text-muted);
+  line-height: 1.65;
+  margin: 0;
+  font-size: 0.94rem;
+}
+
+/* ---------- PRICING ---------- */
+.pricing {
+  background: var(--wh-bg);
+  padding: clamp(70px, 10vh, 120px) 0;
+}
+.pricingInner {
+  display: flex;
+  justify-content: center;
+}
+.priceCard {
+  width: 100%;
+  max-width: 480px;
+  text-align: center;
+  border: 1px solid var(--wh-border);
+  border-radius: var(--wh-radius-lg);
+  padding: clamp(30px, 4vw, 48px);
+  box-shadow: 0 30px 70px -50px rgba(14, 126, 168, 0.5);
+}
+.priceName {
+  font-family: var(--wh-font-display);
+  font-size: 1.3rem;
+  color: var(--wh-text);
+  margin: 0 0 10px;
+}
+.priceFig {
+  font-family: var(--wh-font-display);
+  font-size: 3.4rem;
+  color: var(--wh-text);
+  line-height: 1;
+  margin: 0 0 12px;
+}
+.priceFig span {
+  font-size: 1.1rem;
+  color: var(--wh-text-muted);
+}
+.priceMeta {
+  color: var(--wh-text-muted);
+  font-size: 0.9rem;
+  margin: 0 0 24px;
+}
+.includes {
+  list-style: none;
+  margin: 0 0 28px;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+  text-align: left;
+}
+.includes li {
+  position: relative;
+  padding-left: 28px;
+  color: var(--wh-text);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.includes li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--wh-accent);
+  font-weight: 700;
+}
+.priceCta {
+  width: 100%;
+  justify-content: center;
+}
+
+/* ---------- FAQ ---------- */
+.faq {
+  background: var(--wh-bg-soft);
+  padding: clamp(70px, 10vh, 120px) 0;
+}
+
+/* ---------- START ---------- */
+.start {
+  background: var(--wh-bg);
+  padding: clamp(70px, 10vh, 120px) 0;
+  scroll-margin-top: 84px;
+}
+.startInner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(30px, 5vw, 64px);
+  align-items: center;
+}
+.startP {
+  color: var(--wh-text-muted);
+  line-height: 1.7;
+  max-width: 46ch;
+  margin: 18px 0 0;
+}
+.callLine {
+  margin: 14px 0 0;
+  color: var(--wh-text-muted);
+  font-size: 0.95rem;
+}
+.callLine a {
+  color: var(--wh-accent-ink);
+  font-weight: 600;
+}
+.startFormWrap {
+  background: var(--wh-bg-soft);
+  border: 1px solid var(--wh-border);
+  border-radius: var(--wh-radius-lg);
+  padding: clamp(24px, 3.5vw, 38px);
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 900px) {
+  .heroInner,
+  .startInner {
+    grid-template-columns: 1fr;
+  }
+  .phoneWrap {
+    order: -1;
+  }
+  .contrastInner,
+  .steps {
+    grid-template-columns: 1fr;
+  }
+}

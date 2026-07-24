@@ -1,0 +1,24 @@
+.wrap {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--wh-bg-dark);
+  z-index: 9999;
+}
+
+.spinner {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.12);
+  border-top-color: var(--wh-accent-2);
+  animation: whspin 0.8s linear infinite;
+}
+
+@keyframes whspin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,80 @@
+.form {
+  display: grid;
+  gap: 18px;
+}
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.form label {
+  display: grid;
+  gap: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--wh-text-muted);
+}
+.form input,
+.form select {
+  font-family: var(--wh-font-body);
+  font-size: 1rem;
+  padding: 14px 16px;
+  border: 1px solid var(--wh-border);
+  border-radius: 12px;
+  background: var(--wh-bg);
+  color: var(--wh-text);
+  transition: border-color 200ms var(--wh-ease);
+  width: 100%;
+}
+.form input::placeholder {
+  color: #aab0ba;
+  text-transform: none;
+  font-weight: 400;
+}
+.form input:focus,
+.form select:focus {
+  outline: none;
+  border-color: var(--wh-accent);
+}
+.form button {
+  justify-content: center;
+  margin-top: 6px;
+}
+.err {
+  color: #c0392b;
+  font-size: 0.9rem;
+  margin: 0;
+}
+.success {
+  text-align: center;
+  padding: 40px 20px;
+}
+.successIcon {
+  width: 56px;
+  height: 56px;
+  line-height: 56px;
+  margin: 0 auto 16px;
+  border-radius: 999px;
+  background: var(--wh-accent);
+  color: #fff;
+  font-size: 1.6rem;
+}
+.success h3 {
+  font-family: var(--wh-font-display);
+  font-size: 1.6rem;
+  margin: 0 0 10px;
+  color: var(--wh-text);
+}
+.success p {
+  color: var(--wh-text-muted);
+  max-width: 42ch;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+@media (max-width: 560px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+}

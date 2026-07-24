@@ -1,0 +1,37 @@
+.strip {
+  background: var(--wh-bg-soft);
+  border-bottom: 1px solid var(--wh-border);
+  padding: 20px 0;
+}
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px 30px;
+}
+.point {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 0.92rem;
+  font-weight: 550;
+  color: var(--wh-text);
+}
+.tick {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: var(--wh-accent-soft);
+  color: var(--wh-accent-ink);
+  font-size: 0.66rem;
+  flex-shrink: 0;
+}
+@media (max-width: 760px) {
+  .inner {
+    justify-content: flex-start;
+  }
+}

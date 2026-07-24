@@ -1,10 +1,12 @@
 import NavNew from "@/components/sections/new/NavNew";
 import HeroNew from "@/components/sections/new/HeroNew";
+import TrustStrip from "@/components/sections/new/TrustStrip";
 import ServicesNew from "@/components/sections/new/ServicesNew";
 import AIShowcaseNew from "@/components/sections/new/AIShowcaseNew";
 import ProcessNew from "@/components/sections/new/ProcessNew";
 import PricingNew from "@/components/sections/new/PricingNew";
 import WhyNew from "@/components/sections/new/WhyNew";
+import TestimonialsNew from "@/components/sections/new/TestimonialsNew";
 import FAQNew from "@/components/sections/new/FAQNew";
 import CtaNew from "@/components/sections/new/CtaNew";
 import FooterNew from "@/components/sections/new/FooterNew";
@@ -21,11 +23,13 @@ export default function Home() {
       <NavNew />
       <main>
         <HeroNew />
+        <TrustStrip />
         <ServicesNew />
         <AIShowcaseNew />
         <ProcessNew />
         <PricingNew />
         <WhyNew />
+        <TestimonialsNew />
         <FAQNew />
         <CtaNew />
       </main>
