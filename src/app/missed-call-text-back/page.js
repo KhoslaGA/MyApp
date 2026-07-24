@@ -1,6 +1,7 @@
 import PageShell from "@/components/sections/new/PageShell";
 import FaqBlock from "@/components/sections/new/FaqBlock";
 import DemoRequestForm from "@/components/sections/new/DemoRequestForm";
+import PhoneLink from "@/components/sections/new/PhoneLink";
 import CtaNew from "@/components/sections/new/CtaNew";
 import Link from "next/link";
 import { BUSINESS, OFFER } from "@/lib/business";
@@ -245,6 +246,9 @@ export default function MissedCallTextBack() {
             <p className={styles.startP}>
               Leave your number — we&apos;ll get you set up in a day, and show
               you the AI receptionist too if you want to see it.
+            </p>
+            <p className={styles.callLine}>
+              Prefer to call? <PhoneLink source="missed-call-start" />
             </p>
           </div>
           <div className={styles.startFormWrap}>

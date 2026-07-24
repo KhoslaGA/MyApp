@@ -5,6 +5,7 @@ import RoiCalculator from "@/components/sections/new/RoiCalculator";
 import FaqBlock from "@/components/sections/new/FaqBlock";
 import DemoRequestForm from "@/components/sections/new/DemoRequestForm";
 import StickyCallCta from "@/components/sections/new/StickyCallCta";
+import PhoneLink from "@/components/sections/new/PhoneLink";
 import CtaNew from "@/components/sections/new/CtaNew";
 import Link from "next/link";
 import { BUSINESS, OFFER, telHref } from "@/lib/business";
@@ -302,10 +303,12 @@ export default function AiReceptionist() {
               business — no slides, no pressure. You&apos;ll know in five minutes
               whether it&apos;s right for you.
             </p>
+            <p className={styles.demoPhone}>
+              Prefer to talk to a person? <PhoneLink source="ai-receptionist-demo" />
+            </p>
             {tel && (
               <p className={styles.demoPhone}>
-                Prefer to just hear it now?{" "}
-                <a href={tel}>Call our demo line →</a>
+                Or <a href={tel}>call the AI demo line →</a> to hear it live.
               </p>
             )}
           </div>

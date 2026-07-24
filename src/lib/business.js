@@ -11,7 +11,7 @@ export const BUSINESS = {
   name: "Webhub4U",
   legalName: "Webhub4U Inc.",
   email: "webhub4u@gmail.com",
-  phone: "", // TODO: main business phone — must match GBP + citations
+  phone: "(647) 504-8468", // main business line — keep matched to GBP + citations
   demoPhone: "", // TODO: Vapi AI-receptionist demo line (the page IS the demo)
   city: "Brampton",
   region: "ON",
@@ -26,6 +26,10 @@ export const OFFER = {
   missedCallTextBack: { monthly: 197 },
 };
 
-/** tel: href from a display number, or null if not set. */
-export const telHref = (num) =>
-  num ? "tel:" + num.replace(/[^\d+]/g, "") : null;
+/** tel: href from a display number, or null if not set. Adds +1 for 10-digit NANP numbers. */
+export const telHref = (num) => {
+  if (!num) return null;
+  const digits = num.replace(/[^\d+]/g, "");
+  if (/^\d{10}$/.test(digits)) return "tel:+1" + digits;
+  return "tel:" + digits;
+};

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import PhoneLink from "./PhoneLink";
 import styles from "./FooterNew.module.css";
 
 const CITIES = [
@@ -49,6 +50,7 @@ const FooterNew = () => (
         </div>
         <div className={styles.col}>
           <p className={styles.colTitle}>Get in touch</p>
+          <PhoneLink source="footer" />
           <a href="mailto:webhub4u@gmail.com">webhub4u@gmail.com</a>
           <Link href="/contact">Book a free consult</Link>
         </div>
