@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import "./theme.css";
 import SmoothScroll from "@/components/sections/new/SmoothScroll";
+import Analytics from "@/components/analytics/Analytics";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -43,6 +44,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className={`${inter.className}`}>
         <SmoothScroll>{children}</SmoothScroll>
+        <Analytics />
       </body>
     </html>
   );

@@ -15,6 +15,10 @@ export function track(event, params = {}) {
     }
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event, ...params });
+    // Meta Pixel — custom events feed conversions + retargeting audiences
+    if (typeof window.fbq === "function") {
+      window.fbq("trackCustom", event, params);
+    }
   } catch {
     /* analytics must never break the UI */
   }
